@@ -1,4 +1,4 @@
-/*Copywright by Hajduczek & Maku*/
+/*Copywright by Maciej Hajduk & Maciej Dziadyk*/
 
 import java.util.ArrayList;
 import java.util.List;
