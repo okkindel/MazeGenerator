@@ -1,8 +1,4 @@
-/*Copywright by Maciej Hajduk & Maciej Dziadyk*/
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.*;
+/*Copyright by Maciej Hajduk & Maciej Dziadyk*/
 
 public class MazeGenerator
 {

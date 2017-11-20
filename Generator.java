@@ -1,14 +1,13 @@
-/*Copywright by Maciej Hajduk & Maciej Dziadyk*/
+/*Copyright by Maciej Hajduk & Maciej Dziadyk*/
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.*;
 
 public class Generator
 {
-	private ArrayList <Cell> cells = new ArrayList<Cell>(); 
-	protected int size, loop_counter, numberOfRow = 1;
-	public String[][] table;
+	private ArrayList <Cell> cells = new ArrayList<>();
+	private int size, loop_counter, numberOfRow = 1;
+	private String[][] table;
 
 	public Generator(int width, int height)
 	{
@@ -30,7 +29,7 @@ public class Generator
 		}
 	}
 
-	public void launcher()
+	void launcher()
 	{
 		/*first row*/
 		row_generete();
@@ -80,7 +79,7 @@ public class Generator
 		System.out.println();
 	}
 
-	public void row_generete()
+	private void row_generete()
 	{
 		Random setGenerator = new Random();
 
@@ -113,15 +112,12 @@ public class Generator
 			}
 			if (cells.get(i+1).set!=cells.get(i).set)
 			{
-				if (was_break==false){
+				if (!was_break){
 					cells.get(i).bottom = false;
 					was_break = false;
 				}
 				else{
-					if (setGenerator.nextInt(2)==1)
-					cells.get(i).bottom = false;
-					else
-					cells.get(i).bottom = true;
+                    cells.get(i).bottom = setGenerator.nextInt(2) != 1;
 				was_break = false;
 				}
 			}
@@ -133,16 +129,16 @@ public class Generator
 
 	}
 
-	public void write_down(){
+	private void write_down(){
 		try{
 		for(int i = 1; i <= size-1; i++)
 		{
 			if (i != size)
 			{
-				if(cells.get(i).wall == false){
+				if(!cells.get(i).wall){
 					table[numberOfRow][i] = "   ";
 				}
-				else if(cells.get(i).wall == true){
+				else if(cells.get(i).wall){
 					table[numberOfRow][i] = " | ";
 				}
 			}
@@ -154,16 +150,16 @@ public class Generator
 		{
 			if (i != size-1)
 			{
-				if (cells.get(i).bottom == false){
-					if (table[numberOfRow][i] == " | "){
-						if (cells.get(i+1).bottom == true)
+				if (!cells.get(i).bottom){
+					if (Objects.equals(table[numberOfRow][i], " | ")){
+						if (cells.get(i + 1).bottom)
 							table[numberOfRow+1][i] = " | ";
-						else if (cells.get(i+1).bottom == false)
+						else if (!cells.get(i + 1).bottom)
 							table[numberOfRow+1][i] = " | ";}
 					else
 						table[numberOfRow+1][i] = "   ";
 				}
-				else if(cells.get(i).bottom == true){
+				else if(cells.get(i).bottom){
 					table[numberOfRow+1][i] = "___";
 				}
 			}
@@ -176,7 +172,7 @@ public class Generator
 		}
 	}
 
-	public void next_row(){
+	private void next_row(){
 		Random setGenerator = new Random();
 		System.out.print("");
 
@@ -184,14 +180,14 @@ public class Generator
 		for (int i = 1; i<=size; i++)
 		{
 			cells.get(i).wall = false;
-			if (cells.get(i).bottom==true){
+			if (cells.get(i).bottom){
 				cells.get(i).set=setGenerator.nextInt(10000);
 				cells.get(i).bottom=false;
 			}
 		}
 	}
 
-	public void show()
+	private void show()
 	{
 		System.out.println();
 
@@ -199,9 +195,9 @@ public class Generator
 		System.out.print("|");
 		for (int i = 1; i <=size; i++)
 		{
-			if (cells.get(i).wall == false)
+			if (!cells.get(i).wall)
 				System.out.print(cells.get(i).set + "");
-			else if(cells.get(i).wall == true)
+			else if(cells.get(i).wall)
 				System.out.print(cells.get(i).set + "|");
 			if (i == size)
 				System.out.print("|\n");
@@ -213,7 +209,7 @@ public class Generator
 		{
 			if (cells.get(i).set < 10)
 			{
-				if (cells.get(i).bottom == true)
+				if (cells.get(i).bottom)
 					System.out.print("-");
 				else
 					System.out.print(" ");
@@ -222,7 +218,7 @@ public class Generator
 			}
 			else
 			{
-				if (cells.get(i).bottom == true)
+				if (cells.get(i).bottom)
 					System.out.print("--");
 				else
 					System.out.print("  ");
@@ -233,7 +229,7 @@ public class Generator
 		System.out.println("\n");
 	}
 
-	public void print()
+	private void print()
 	{
 		System.out.println();
 		for(int i = 0; i <= size; i++){
@@ -246,22 +242,22 @@ public class Generator
 		System.out.print("");
 	}
 
-	public void alternative_out ()
+	private void alternative_out()
 	{
 		try{
 		System.out.print("\n |");
 		for (int i=1; i <=size-1; i++)
 		{
-			if (cells.get(i).wall == false && cells.get(i).bottom == true)
+			if (!cells.get(i).wall && cells.get(i).bottom)
 				System.out.print("___");
-			if (cells.get(i).wall == false && cells.get(i).bottom == false)
+			if (!cells.get(i).wall && !cells.get(i).bottom)
 				System.out.print("   ");
-			if (cells.get(i).wall == true && cells.get(i).bottom == false)
+			if (cells.get(i).wall && !cells.get(i).bottom)
 				System.out.print(" | ");
-			if (cells.get(i).wall == true && cells.get(i).bottom == true){
-				if (cells.get(i+1).bottom == true)
+			if (cells.get(i).wall && cells.get(i).bottom){
+				if (cells.get(i + 1).bottom)
 					System.out.print("_| ");
-				else if (cells.get(i+1).bottom == false)
+				else if (!cells.get(i + 1).bottom)
 					System.out.print(" |_");
 			}		
 		}
