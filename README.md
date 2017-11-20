@@ -1,4 +1,4 @@
-# maze-generator
+# Maze Generator
 
 This is just a simple random ASCII maze generator I wrote for fun with friend. It is fully written Java.
 
@@ -29,6 +29,5 @@ http://weblog.jamisbuck.org/2010/12/29/maze-generation-eller-s-algorithm
  |___ |  |  |  |  |     |_ |  |  |  |  |  |  |  | ______ | |
  | |  | ___ |  | ___ |  |    ______    |  | ___    |_   ___|
  | |  | ___   ___       |_ |  |  |  |_ |     |  |  |  |  | |
- -----------------------------------------------------------
-
+ ___________________________________________________________
 ```
