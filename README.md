@@ -1,4 +1,4 @@
-# maze_generator
+# maze-generator
 
 This is just a simple random ASCII maze generator I wrote for fun with friend. It is fully written Java.
 
