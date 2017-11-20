@@ -5,6 +5,7 @@ This is just a simple random ASCII maze generator I wrote for fun with friend. I
 Please feel free to fork and make comments/suggestions! Thanks!
 
 It uses Eller’s maze generator's algorithm.
+http://weblog.jamisbuck.org/2010/12/29/maze-generation-eller-s-algorithm
 
 ```
  ___________________________________________________________
