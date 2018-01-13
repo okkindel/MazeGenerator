@@ -1,4 +1,4 @@
-# Maze Generator
+# Maze Generator [![CodeFactor](https://www.codefactor.io/repository/github/okkindel/mazegenerator/badge)](https://www.codefactor.io/repository/github/okkindel/mazegenerator)
 
 This is just a simple random ASCII maze generator I wrote for fun with friend. It is fully written Java.
 
